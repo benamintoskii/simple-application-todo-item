@@ -1,0 +1,22 @@
+<div class="app-container">
+  <app-navbar></app-navbar>
+
+  <main class="main-content">
+    <section class="hero">
+      <h1 class="page-title">Discover Our Premium Collection</h1>
+      <p class="page-subtitle">Explore the finest products tailored for your modern lifestyle. Hover over the cards to see more.</p>
+    </section>
+
+    <div *ngIf="loading" class="loader"></div>
+
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+
+    <div class="product-grid" *ngIf="!loading && !error">
+      <app-product-card *ngFor="let item of items" [item]="item"></app-product-card>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>
